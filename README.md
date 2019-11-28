@@ -1,6 +1,6 @@
 # Cordova Firebase Crashlytics Plugin
 
-A Google Firebase Crashlytics plugin to enable capture of crash reports.
+A Google Firebase Crashlytics plugin to enable capture of crash reports. Forked by 123erfasst to regard the issue of incorrect logging of non fatal exceptions.
 
 # What is Crashlytics?
 
