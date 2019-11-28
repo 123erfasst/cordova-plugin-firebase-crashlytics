@@ -3,6 +3,7 @@ package uk.co.reallysmall.cordova.plugin.firebase.crashlytics;
 import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
+import java.lang.reflect.Array;
 
 import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
@@ -15,9 +16,18 @@ public class LogExceptionHandler implements ActionHandler {
             @Override
             public void run() {
                 try {
-                    final String msg = args.getString(0);
+                    final String fullMsg = args.getString(0);
+                    String[] splitMessage = fullMsg.split(";");
 
-                    Exception exception = new Exception(msg);
+                    String userData = splitMessage[0];
+                    String[] splitUserData = userData.split("|");
+
+                    final StackTraceElement headerElementElement = new StackTraceElement(fullMsg, "", splitUserData[splitUserData.length-1], 0);
+                    StackTraceElement[] stackTraces = new StackTraceElement[1];
+                    stackTraces[0] = headerElementElement;
+
+                    Exception exception = new Exception(fullMsg);
+                    exception.setStackTrace(stackTraces);
 
                     Crashlytics.logException(exception);
                 } catch (JSONException e) {
