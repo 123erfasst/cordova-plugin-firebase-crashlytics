@@ -20,7 +20,7 @@ public class LogExceptionHandler implements ActionHandler {
                     String[] splitMessage = fullMsg.split(";");
 
                     String userData = splitMessage[0];
-                    String[] splitUserData = userData.split("|");
+                    String[] splitUserData = userData.split("\\|");
 
                     final StackTraceElement headerElementElement = new StackTraceElement(fullMsg, "", splitUserData[splitUserData.length-1], 0);
                     StackTraceElement[] stackTraces = new StackTraceElement[1];
