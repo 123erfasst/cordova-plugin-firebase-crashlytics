@@ -81,6 +81,9 @@
     <source-file src="src/ios/FirebaseCrashlyticsPlugin.m"/>
     <header-file src="src/ios/AppDelegate+FirebaseCrashlyticsPlugin.h"/>
     <source-file src="src/ios/AppDelegate+FirebaseCrashlyticsPlugin.m"/>
+
+    <framework src="lib/ios/Fabric.framework" custom="true" />	
+    <framework src="lib/ios/Crashlytics.framework" custom="true" />
   </platform>
 
 </plugin>
